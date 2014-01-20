@@ -1,4 +1,4 @@
-= BzCore
+# BzCore
 
 Includes the slim generation templates, scaffolding configuration,
 application helper commonly used methods such that we could include the
@@ -44,3 +44,5 @@ bundle exec rails g exposable_scaffold_controller Admin::Event name:string event
 Please see LINK TO HELPER FILE for the common methods defined
 
 ### Javascript organization per controller action basis
+
+TODO
