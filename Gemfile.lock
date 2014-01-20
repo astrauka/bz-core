@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    foundation (0.0.1)
+    bz-core (0.0.1)
       rails (~> 4.0.2)
 
 GEM
@@ -97,6 +97,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  foundation!
+  bz-core!
   rspec-rails
   sqlite3

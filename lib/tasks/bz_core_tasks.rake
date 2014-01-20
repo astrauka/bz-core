@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :foundation do
+# task :bz_core do
 #   # Task goes here
 # end

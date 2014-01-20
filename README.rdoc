@@ -1,4 +1,4 @@
-= Foundation
+= BzCore
 
 Includes the slim generation templates, scaffolding configuration,
 application helper commonly used methods such that we could include the

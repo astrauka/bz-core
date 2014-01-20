@@ -1,4 +1,4 @@
-module Foundation
+module BzCore
   class Engine < ::Rails::Engine
     config.generators do |g|
       g.template_engine :slim
