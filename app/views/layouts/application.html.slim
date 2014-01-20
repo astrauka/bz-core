@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    title Casper
+
+    = stylesheet_link_tag "application", media: "all"
+
+    /[if IE 6]
+      = stylesheet_link_tag "/assets/common/base-ie6", media: "all"
+    /[if IE 7]
+      = stylesheet_link_tag "/assets/common/base-ie7", media: "all"
+    /[if IE 8]
+      = stylesheet_link_tag "/assets/common/base-ie8", media: "all"
+
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    = render 'javascript'
+
+    = yield :head if content_for?(:head)
+
+  body[
+    data-controller=controller_name
+    data-action=action_name
+    data-router-class=data_controller_name
+    data-router-action="#{action_name.to_s}_action"
+  ]
+    #wrapper
+      #wrapper-margin
+        = render "layouts/header"
+        = render "layouts/alerts"
+
+        = yield
+
+    = render "layouts/footer"

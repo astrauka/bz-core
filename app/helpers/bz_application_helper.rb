@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-module ApplicationHelper
+module BzApplicationHelper
   # From Lupin V2
   #
   # Highlight the nav item if current page matching controllers_options
