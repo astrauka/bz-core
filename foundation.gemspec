@@ -7,16 +7,17 @@ require "foundation/version"
 Gem::Specification.new do |s|
   s.name        = "foundation"
   s.version     = Foundation::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Foundation."
-  s.description = "TODO: Description of Foundation."
+  s.authors     = ["Bit Zesty"]
+  s.email       = ["info@bitzesty.com"]
+  s.homepage    = "http://bitzesty.com/"
+  s.summary     = "Commonly used project foundation"
+  s.description = "Commonly used project foundation"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "rails", "~> 4.0.2"
 
   s.add_development_dependency "sqlite3"
+  s.add_development_dependency "rspec-rails"
 end
