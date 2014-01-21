@@ -21,7 +21,7 @@ module BzCore
     end
 
     config.assets.precompile += %w(
-      core_application.css
+      application.css
       application-ie8.css
       application-ie7.css
       application-ie6.css
