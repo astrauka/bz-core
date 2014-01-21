@@ -1,8 +1,11 @@
+require "capybara/poltergeist"
+Capybara.javascript_driver = :poltergeist
+
 # Configure Rails Envinronment
 ENV["RAILS_ENV"] = "test"
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 
-require 'rspec/rails'
+require "rspec/rails"
 
 Rails.backtrace_cleaner.remove_silencers!
 

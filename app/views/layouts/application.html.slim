@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title = yield :app_title
+    title = yield(:app_title)
 
     = stylesheet_link_tag "core_application", media: "all"
 
@@ -16,7 +16,7 @@ html
     = csrf_meta_tags
     = render 'javascript'
 
-    = yield :head if content_for?(:head)
+    = yield(:head) if content_for?(:head)
 
   body[
     data-controller=controller_name

@@ -1,3 +1,1 @@
-# override me!!!
-
-# application specific javascript
+# OVERRIDE ME!!!
