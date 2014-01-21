@@ -17,7 +17,5 @@
 #= require bootstrap
 #= require bootstrap-datepicker
 #= require select2
-#= require initialization
+#= require core_initialization
 #= require public
-#= require app_application
-#= require app_initialization
