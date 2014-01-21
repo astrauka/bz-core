@@ -20,6 +20,13 @@ versioned (via gem version).
 
 ## Usage
 
+### Add to Gemfile
+
+```
+gem "bz-core", "0.0.1",
+    git: "git@github.com:bitzesty/bz-core"
+```
+
 ### Scaffold generators
 
 Please use the following generators to get the templates designed to be
