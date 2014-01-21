@@ -23,7 +23,7 @@ versioned (via gem version).
 ### Add to Gemfile
 
 ```
-gem "bz-core", "0.0.1",
+gem "bz-core", "0.0.1", require: "bz_core",
     git: "git@github.com:bitzesty/bz-core"
 ```
 
