@@ -12,6 +12,10 @@ versioned (via gem version).
 
 * Application helper methods
 
+* Initial css
+
+* Initial javascript
+
 * Javascript organization per controller action basis
 
 ## Usage
@@ -43,6 +47,36 @@ bundle exec rails g exposable_scaffold_controller Admin::Event name:string event
 
 Please see LINK TO HELPER FILE for the common methods defined
 
+### Initial css
+
+Please see CORE ASSETS for assets that are defined and DUMMY APP ASSETS
+example for assets to be created.
+
+The core application defines ```application.css.scss``` importing bootstrap,
+datepicker and ```app_application.css.scss``` where you should put application
+specific css
+
+### Initial javascript
+
+Please see CORE ASSETS for assets that are defined and DUMMY APP ASSETS
+example for assets to be created.
+
+The core application defines ```application.js.coffee``` importing bootstrap,
+datepicker, jquery-ui, jquery-ujs and ```app_application.js.coffee``` where
+you should put application specific css.
+
+
 ### Javascript organization per controller action basis
 
-TODO
+Javascript is loaded per controller action basis. Please read
+https://coderwall.com/p/mhvucw?i=4&p=1&q=author%3Atadas_t&t%5B%5D=tadas_t
+
+To add common javascript that should be executed on content loaded
+(both when rendering new page and when updating DOM via ajax) please
+place it in ```app_initialization.js.coffee```. It gets loaded from LINK
+TO INITIALIZATION so you should define it as described in DUMMY
+INITIALIZATION
+
+Please find LINK TO DUMMY on how to add javascript per controller action.
+Bare in mind that you need to ```#= require_tree ./public``` in
+```app_application.js.coffee``` in order to load the js files.

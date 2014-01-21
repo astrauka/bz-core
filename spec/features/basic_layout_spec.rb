@@ -11,5 +11,13 @@ describe "Basic Layout" do
     within "p.basic" do
       expect_to_see "js works"
     end
+
+    within "body" do
+      expect_to_see "initialization js loaded"
+    end
+
+    within "body" do
+      expect_to_see "home controller action loaded"
+    end
   end
 end
