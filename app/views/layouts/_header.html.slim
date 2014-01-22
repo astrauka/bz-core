@@ -15,7 +15,10 @@ nav.navbar.navbar-default role="navigation"
 
   / toglable content
   .collapse.navbar-collapse
-    ul.nav.navbar-nav
-      = nav_item "Example",
-                 root_path,
-                 active: :homes
+    - if content_for?(:navbar_collapse)
+      = yield :navbar_collapse
+    - else
+      ul.nav.navbar-nav
+        = nav_item "Example",
+                   root_path,
+                   active: :homes
