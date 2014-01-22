@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency "jquery-ui-rails"
   s.add_dependency "bootstrap-datepicker-rails"
   s.add_dependency "select2-rails"
+  s.add_dependency "kaminari"
 
   s.add_dependency "draper"
   s.add_dependency "decent_exposure", "~>2.3.0"
