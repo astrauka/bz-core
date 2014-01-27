@@ -27,8 +27,8 @@ html
     #wrapper
       #wrapper-margin
         = render "layouts/header"
-        = render "layouts/alerts"
-
-        = yield
+        .container
+          = render "layouts/alerts"
+          = yield
 
     = render "layouts/footer"

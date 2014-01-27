@@ -149,4 +149,16 @@ module BzApplicationHelper
       content_tag(:span, '✘', class: 'badge badge-important')
     end
   end
+
+  # Displays flash messages with proper bootstrap css selector
+  #
+  # .container
+  #   = render "layouts/alerts"
+  def flash_class(level)
+    case level
+      when :notice then "info"
+      when :error then "danger"
+      when :alert then "warning"
+    end
+  end  
 end
