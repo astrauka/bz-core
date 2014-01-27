@@ -126,9 +126,9 @@ module BzApplicationHelper
   end
 
   # Appends http:// if site has no protocol defined
-  def site_url(site)
-    if (url = site).present?
-      if url.starts_with?("http")
+  def external_url(url)
+    if url.present?
+      if (url.starts_with?("http://") || url.starts_with?("https://"))
         url
       else
         "http://#{url}"
@@ -138,8 +138,8 @@ module BzApplicationHelper
 
   # Ensures the website is displayed with full url to not link to the
   # current site
-  def site_link(site)
-    link_to site, site_url(site)
+  def external_link(url)
+    link_to url, external_url(url)
   end
 
   def confirmation_icon(value)
@@ -160,5 +160,5 @@ module BzApplicationHelper
       when :error then "danger"
       when :alert then "warning"
     end
-  end  
+  end
 end
