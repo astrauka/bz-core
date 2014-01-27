@@ -1,5 +1,5 @@
-- if notice.present? || alert.present?
-  .container-fluid
-    .flashes.alert
-      = notice
-      = alert
+- [:notice, :error, :alert].each do |level|
+  - unless flash[level].blank?
+    div class="alert alert-#{flash_class(level)}"
+      a.close href="#"
+      = content_tag :p, flash[level]
