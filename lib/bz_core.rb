@@ -17,5 +17,15 @@ require "decent_exposure"
 
 require "dotenv-rails"
 
+require "#{BzCore::Engine.root}/lib/flash_messages.rb"
+
 module BzCore
+end
+
+begin
+  ActiveSupport.on_load(:action_controller) do
+    include BzCore::FlashMessages
+  end
+rescue LoadError
+  puts "Rails not installed, continuing"
 end
