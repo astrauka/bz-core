@@ -24,6 +24,8 @@ versioned (via gem version).
 
 * Controller flash message helpers
 
+* Capistrano tasks
+
 ## Usage
 
 ### Add to Gemfile
@@ -136,3 +138,11 @@ common spec helpers and include those to your project
 Please see
 https://github.com/bitzesty/bz-core/blob/master/lib/flash_messages.rb
 for available flash helpers
+
+### Capistrano tasks
+
+Adds capistrano deployment tasks. Include via:
+
+```
+require 'bz_core/capistrano'
+```
