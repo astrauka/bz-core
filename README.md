@@ -18,6 +18,8 @@ versioned (via gem version).
 
 * Javascript organization per controller action basis
 
+* Application layout
+
 ## Usage
 
 ### Add to Gemfile
@@ -104,3 +106,18 @@ https://github.com/bitzesty/bz-core/tree/master/spec/dummy/app/assets/javascript
 on how to add javascript per controller action.
 Bare in mind that you need to ```#= require_tree ./public``` in
 ```application.js.coffee``` in order to load the js files.
+
+### Application layout
+
+Application layout is defined in
+https://github.com/bitzesty/bz-core/tree/master/app/views/layouts.
+
+Please use it once possible as it will evolve over time and use the most
+recent stuff.
+
+#### Header navigation
+
+Please override the
+https://github.com/bitzesty/bz-core/blob/master/app/views/layouts/_header.html.slim
+for navigation.
+
