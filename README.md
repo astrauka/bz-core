@@ -20,6 +20,10 @@ versioned (via gem version).
 
 * Application layout
 
+* Spec helpers
+
+* Controller flash message helpers
+
 ## Usage
 
 ### Add to Gemfile
@@ -121,3 +125,14 @@ Please override the
 https://github.com/bitzesty/bz-core/blob/master/app/views/layouts/_header.html.slim
 for navigation.
 
+#### Spec helpers
+
+Please see
+https://github.com/bitzesty/bz-core/blob/master/spec/spec_helper.rb for
+common spec helpers and include those to your project
+
+#### Controller flash message helpers
+
+Please see
+https://github.com/bitzesty/bz-core/blob/master/lib/flash_messages.rb
+for available flash helpers
