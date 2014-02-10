@@ -20,6 +20,16 @@ require "dotenv-rails"
 require "#{BzCore::Engine.root}/lib/flash_messages.rb"
 
 module BzCore
+  %w(
+    authentication_helper
+    click_on_helper
+    expectation_helper
+    features_helper
+    modal_helper
+    spec_utility
+  ).each do |module_name|
+    autoload module_name.classify.to_sym, "bz_core/spec/support/#{module_name}"
+  end
 end
 
 begin

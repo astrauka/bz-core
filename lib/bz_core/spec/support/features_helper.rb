@@ -1,5 +1,5 @@
 module BzCore
-  module FeaturesHelpers
+  module FeaturesHelper
     def verify(call)
       expect(call).to be(true)
     end

@@ -19,11 +19,13 @@ Dir[File.join(ENGINE_RAILS_ROOT, "spec/support/**/*.rb")].each {|f| require f }
 RSpec.configure do |config|
   config.order = "random"
 
+  config.include BzCore::SpecUtility
+
   config.include Devise::TestHelpers, type: :controller
 
-  config.include BzCore::AuthenticationMacros, type: :feature
+  config.include BzCore::AuthenticationHelper, type: :feature
   config.include BzCore::ClickOnHelper, type: :feature
-  config.include BzCore::ExpectationHelpers, type: :feature
-  config.include BzCore::FeaturesHelpers, type: :feature
+  config.include BzCore::ExpectationHelper, type: :feature
+  config.include BzCore::FeaturesHelper, type: :feature
   config.include BzCore::ModalHelper, type: :feature
 end

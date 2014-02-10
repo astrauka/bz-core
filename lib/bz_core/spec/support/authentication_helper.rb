@@ -1,5 +1,5 @@
 module BzCore
-  module AuthenticationMacros
+  module AuthenticationHelper
     [:user, :admin].each do |user_type|
       module_eval <<-RUBY, __FILE__, __LINE__ + 1
         def sign_in_#{user_type}(#{user_type} = nil)                # def sign_in_admin(admin = nil)

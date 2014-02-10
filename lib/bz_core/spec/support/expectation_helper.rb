@@ -1,5 +1,5 @@
 module BzCore
-  module ExpectationHelpers
+  module ExpectationHelper
     def expect_to_see(content)
       expect(page).to have_content content
     end
