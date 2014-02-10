@@ -1,22 +1,22 @@
 module BzCore
   module FlashMessages
 
-    # Example                                                                                                                                                                                           
-    #   common_notice :create, :success, :location                                                                                                                                                      
-    #   common_notice :update, :error, "users.roles"
+    # Example
+    #   common_message :create, :success, :location
+    #   common_message :update, :error, "users.roles"
     #   redirect_to some_path,
-    #               common_notice(:create, :success, :task)                                                                                                                                               
-    def common_notice(action, status, entity)                                                                                                                                                       
-      t "common.flash.#{action.to_s}.#{status.to_s}",                                                                                                                                                   
-      entity: t("activerecord.models.#{entity.to_s}")                                                                                                                                                      
+    #               notice: common_message(:create, :success, :task)
+    def common_message(action, status, entity)
+      t "flash.common.#{action}.#{status}",
+        { entity: t("activerecord.models.#{entity}") }
     end
 
-    # Example                                                                                                                                                                                           
-    #   custom_notice :notice, :trash_emptied
+    # Example
+    #   custom_message :trash_emptied, :success
     #   redirect_to some_path,
-    #               custom_notice(:notice, :trash_emptied)                                                                                                                                               
-    def custom_notice(flash_key, status)
-      { flash_key => t("#{controller_path.gsub('/', '.')}.#{status}") }                                                                                                                                        
+    #               notice: custom_message(:trash_emptied, :success)
+    def custom_message(action, status, opts = {})
+      t("flash.#{controller_path.gsub('/', '.')}.#{action}.#{status}", opts)
     end
   end
 end

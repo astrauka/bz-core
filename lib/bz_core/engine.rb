@@ -27,5 +27,7 @@ module BzCore
       application-ie6.css
       application.js
     )
+
+    I18n.enforce_available_locales = true
   end
 end
