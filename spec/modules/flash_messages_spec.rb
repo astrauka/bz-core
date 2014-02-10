@@ -9,35 +9,22 @@ describe "FlashMessages" do
 
       include BzCore::FlashMessages
       def controller_path
-        "discussable/messages"
+        "discussable/emails"
       end
     end
   }
 
-  describe "common notice" do
-    let(:location_created_message) { 'created successfuly!' }
-    let(:location_created_entity) { 'Location' }
-
+  describe "common message" do
     it "should return correct flash key and translated message" do
-      I18n.stub(:t).with("en.common.flash.create.success") { location_created_message }
-      I18n.stub(:t).with("activerecord.models.location") { location_created_entity }
-
-      result = dummy_class.common_notice(:create, :success, :location)
-      expect(result.is_a?(Array)).to be_true
-      expect(result[0]).to be_eql(location_created_message)
-      expect(result[1][:entity]).to be_eql(location_created_entity)
+      result = dummy_class.common_message(:create, :success, :location)
+      expect(result).to eq "Location created"
     end
   end
 
-  describe "custom notice" do
-    let(:trash_emptied_message) { 'Trash emptied!' }
-
+  describe "custom message" do
     it "should return correct flash key and translated message" do
-      I18n.stub(:t).with("discussable.messages.trash_emptied") { trash_emptied_message }
-
-      result = dummy_class.custom_notice(:notice, :trash_emptied)
-      expect(result.is_a?(Hash)).to be_true
-      expect(result[:notice]).to be_eql(trash_emptied_message)
+      result = dummy_class.custom_message(:trash_emptied, :success, user: "Jim")
+      expect(result).to eq "Trash for Jim emptied"
     end
   end
 end

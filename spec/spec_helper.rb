@@ -18,5 +18,5 @@ Dir[File.join(ENGINE_RAILS_ROOT, "spec/support/**/*.rb")].each {|f| require f }
 RSpec.configure do |config|
   config.order = "random"
 
-  config.include ExpectationHelpers, type: :feature
+  config.include BzCore::ExpectationHelpers, type: :feature
 end
