@@ -1,11 +1,12 @@
 namespace :deploy do
-  desc "Restart fetch(:application)"
+  desc "Restart application"
   task :restart do
     on roles(:app) do
       execute "start #{fetch(:application)} || restart #{fetch(:application)}"
     end
   end
 
+  desc "Export upstart scripts via foreman"
   task :export_app do
     on roles(:app) do
       within release_path do
@@ -31,8 +32,8 @@ namespace :deploy do
     end
   end
 
-  after 'deploy:publishing', 'deploy:restart'
-  before :restart, "unicorn:server_config"
-  before :restart, "deploy:export_app"
+  after :publishing, "unicorn:server_config"
+  after "unicorn:server_config", :export_app
+  after :export_app, :restart
   after :finishing, "deploy:cleanup"
 end

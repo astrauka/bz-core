@@ -1,1 +1,3 @@
-Dir[File.expand_path("../capistrano/tasks/*.rake", __FILE__)].each { |f| load f  }
+%w(unicorn deploy).each do |file|
+  load File.expand_path("../../capistrano/tasks/#{file}.rake", __FILE__)
+end
