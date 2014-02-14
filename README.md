@@ -49,13 +49,13 @@ bundle exec rails g model Event name:string event_type:string
 * Generate controller scaffold for */events*:
 
 ```
-bundle exec rails g exposable_scaffold_controller Event name:string event_type:string
+bundle exec rails g scaffold_controller Event name:string event_type:string
 ```
 
 * Generate controller scaffold for */admin/events*:
 
 ```
-bundle exec rails g exposable_scaffold_controller Admin::Event name:string event_type:string
+bundle exec rails g scaffold_controller Admin::Event name:string event_type:string
 ```
 
 ### Application helper methods
