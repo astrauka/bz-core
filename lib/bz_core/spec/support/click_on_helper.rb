@@ -24,7 +24,7 @@ module BzCore
               find %(a[href="#{locator}"])
 
              else
-               find %(a[data-action="#{locator}"])
+               find %(a[data-action="#{locator}"], input[data-action="#{locator}"])
              end
            end
 
