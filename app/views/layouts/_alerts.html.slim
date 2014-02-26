@@ -3,3 +3,6 @@
     div class="alert alert-#{flash_class(level)}"
       a.close href="#"
       = content_tag :p, flash[level]
+
+/ clear flash as user has already seen it
+- flash.clear
