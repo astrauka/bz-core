@@ -150,10 +150,10 @@ require 'bz_core/capistrano'
 #### For running custom rake tasks you can use:
 
 ```ruby
-  cap env invoke[namespace:task_name]
+  cap env deploy:invoke[namespace:task_name]
 ```
 
 For example:
 
 ```ruby
-  cap staging invoke[db:migrate]
+  cap staging deploy:invoke[db:migrate]
