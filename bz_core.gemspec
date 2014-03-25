@@ -17,16 +17,17 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "rails", "~> 4.0.2"
-  s.add_dependency "slim-rails", "~> 2.0.4"
-  s.add_dependency "simple_form", "~> 3.0.0"
+  s.add_dependency "rails", "~> 4.0"
+  s.add_dependency "slim-rails", "~> 2.0"
+  s.add_dependency "simple_form", "~> 3.0"
 
-  s.add_dependency "sass-rails", "~> 4.0.0"
-  s.add_dependency "coffee-rails", "~> 4.0.0"
-  s.add_dependency "uglifier", ">= 1.3.0"
+  s.add_dependency "sass-rails", "~> 4.0"
+  s.add_dependency "coffee-rails", "~> 4.0"
+  s.add_dependency "uglifier", ">= 1.3"
   s.add_dependency "execjs"
 
-  s.add_dependency "bootstrap-sass", ">= 3.0.0.0"
+  s.add_dependency "bootstrap-sass", ">= 3.0"
+  s.add_dependency "compass-rails"
   s.add_dependency "jquery-rails"
   s.add_dependency "jquery-ui-rails"
   s.add_dependency "bootstrap-datepicker-rails"
@@ -34,7 +35,7 @@ Gem::Specification.new do |s|
   s.add_dependency "kaminari"
 
   s.add_dependency "draper"
-  s.add_dependency "decent_exposure", "~>2.3.0"
+  s.add_dependency "decent_exposure", "~>2.3"
 
   s.add_dependency "dotenv-rails"
 
