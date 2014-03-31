@@ -139,6 +139,13 @@ Please see
 https://github.com/bitzesty/bz-core/blob/master/lib/flash_messages.rb
 for available flash helpers
 
+#### Environment uglifier configuration
+
+To fix an IE unicode characters bug; For each environment that compress assets (staging and production), please set the JS uglifier options to:
+```
+config.assets.js_compressor = Uglifier.new(output: {ascii_only: true, quote_keys: true})
+```
+
 ### Capistrano tasks
 
 Adds capistrano deployment tasks. Include via:
