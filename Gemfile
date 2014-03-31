@@ -12,6 +12,3 @@ gemspec
 
 gem "kaminari"
 gem "simple_form"
-gem "select2-bootstrap-css",
-    github: "t0m/select2-bootstrap-css",
-    branch: "bootstrap3"
