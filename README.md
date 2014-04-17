@@ -31,8 +31,8 @@ versioned (via gem version).
 ### Add to Gemfile
 
 ```
-gem "bz-core", "0.0.2", require: "bz_core",
-    git: "git@github.com:bitzesty/bz-core"
+gem "bz-core", "0.0.3", require: "bz_core",
+    git: "git://github.com/bitzesty/bz-core"
 ```
 
 ### Scaffold generators
