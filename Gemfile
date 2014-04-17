@@ -10,5 +10,8 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
+gem 'spring'
+gem 'spring-commands-rspec'
+
 gem "kaminari"
 gem "simple_form"

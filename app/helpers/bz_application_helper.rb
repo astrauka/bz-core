@@ -1,28 +1,36 @@
 # -*- coding: utf-8 -*-
 
 module BzApplicationHelper
-  # From Lupin V2
-  #
   # Highlight the nav item if current page matching controllers_options
-  #
   # Examples
-  #
   #   nav_item 'Foo', '/foo', 'controller_foo', 'controller_bar'
   #   nav_item 'Foo', '/foo', %w(controller_foo controller_bar)
-  #   nav_item 'Foo', '/foo', 'controller_foo', controller_bar: ['edit', 'new']
+  #   nav_item 'Foo', '/foo', controller_foo: 'all_actions', controller_bar: ['edit', 'new']
   #   nav_item 'Foo', '/foo', controller_foo: 'index', controller_bar: ['edit', 'new']
-  #
-  def nav_item(text, url, *controllers_options)
-    controllers_options.flatten!
+  #   nav_item 'Foo', '/foo', controller_foo: 'index', controller_bar: ['edit', 'new']
+  #   nav_item 'Foo', '/foo', active_nav: :foos
+  def nav_item(name, url, activator = '', opts = {})
+    if (activator.is_a?(String) && (request.path.start_with?(activator) || controller_name == activator.to_s)) ||
+      (activator.is_a?(Regexp) && request.path =~ activator) ||
+      (activator.is_a?(Hash) && defined?(active_nav) && active_by_specified_activator?(activator)) ||
+      (activator.is_a?(Hash) && !defined?(active_nav) && active_by_specified_controller?(activator)) ||
+      (activator.is_a?(Array) && controller_name.in?(activator))
+      opts.merge!({ class: 'active' })
+    end
 
-    options = controllers_options.extract_options!
+    content_tag :li, opts do
+      link_to name, url
+    end
+  end
 
-    wrapper_options = if controller_name.in?(controllers_options) or
-                         [ * options[controller_name.to_sym] ].include?(action_name)
-                        {class: 'active'}
-                      end
+  def active_by_specified_activator?(activator)
+    active_nav.to_s == activator[:active_nav].to_s
+  end
 
-    nav_element(text, url, wrapper_options)
+  def active_by_specified_controller?(activator)
+    active_actions_for_controller = Array.wrap(activator[controller_name.to_sym]).map(&:to_s)
+    active_actions_for_controller.include?(action_name) ||
+      active_actions_for_controller.include?("all_actions")
   end
 
   def nav_element(text, url, wrapper_options = {})
