@@ -2,33 +2,54 @@ namespace :deploy do
   desc "Restart application"
   task :restart do
     on roles(:app) do
-      execute "start #{fetch(:application)} || restart #{fetch(:application)}"
+      case fetch(:webserver)
+      when "passenger"
+        # make sure user can sudo restart
+        execute "sudo /etc/init.d/nginx restart"
+      when "unicorn", nil
+        execute "start #{fetch(:application)} || restart #{fetch(:application)}"
+      end
     end
   end
 
   desc "Export upstart scripts via foreman"
   task :export_app do
     on roles(:app) do
-      within release_path do
-        execute :bundle, ["exec foreman export upstart /home/#{fetch(:user)}/.init",
-                   "-a #{fetch(:application)}",
-                   "-f Procfile.#{fetch(:stage)}",
-                   "-u #{fetch(:user)}",
-                   "-l #{shared_path}/log",
-                   "-t config/deploy/templates"].join(" ")
+      case fetch(:webserver)
+      when "passenger"
+        # nothing, passenger manages itself
+      when "unicorn", nil
+        within release_path do
+          execute :bundle, ["exec foreman export upstart /home/#{fetch(:user)}/.init",
+                     "-a #{fetch(:application)}",
+                     "-f Procfile.#{fetch(:stage)}",
+                     "-u #{fetch(:user)}",
+                     "-l #{shared_path}/log",
+                     "-t config/deploy/templates"].join(" ")
+        end
       end
     end
   end
 
   task :start do
     on roles(:app) do
-      execute "start #{fetch(:application)}"
+      case fetch(:webserver)
+      when "passenger"
+        # nothing, passenger manages itself
+      when "unicorn", nil
+        execute "start #{fetch(:application)}"
+      end
     end
   end
 
   task :stop do
     on roles(:app) do
-      execute "stop #{fetch(:application)}"
+      case fetch(:webserver)
+      when "passenger"
+        # nothing, passenger manages itself
+      when "unicorn", nil
+        execute "stop #{fetch(:application)}"
+      end
     end
   end
 
@@ -43,8 +64,10 @@ namespace :deploy do
     end
   end
 
-  after :publishing, "unicorn:server_config"
-  after "unicorn:server_config", :export_app
-  after :export_app, :restart
+  if ["unicorn", nil].include? fetch(:webserver)
+    after :publishing, "unicorn:server_config"
+    after "unicorn:server_config", :export_app
+  end
+  before :restart, "deploy:export_app"
   after :finishing, "deploy:cleanup"
 end

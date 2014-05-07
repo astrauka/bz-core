@@ -154,6 +154,13 @@ Adds capistrano deployment tasks. Include via:
 require 'bz_core/capistrano'
 ```
 
+If using passenger need to set webserver:
+
+```
+# config/deploy.rb
+set :webserver, "passenger"
+```
+
 #### For running custom rake tasks you can use:
 
 ```ruby
