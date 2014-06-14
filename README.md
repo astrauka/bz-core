@@ -32,7 +32,7 @@ versioned (via gem version).
 
 ```
 gem "bz-core", "0.0.5", require: "bz_core",
-    git: "git://github.com/bitzesty/bz-core"
+    git: "git://github.com/astrauka/bz-core"
 ```
 
 ### Scaffold generators
