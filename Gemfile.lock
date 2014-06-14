@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bz-core (0.0.3)
+    bz-core (0.0.5)
       bootstrap-datepicker-rails
       bootstrap-sass (>= 3.0)
       coffee-rails (~> 4.0)

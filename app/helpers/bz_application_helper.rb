@@ -18,8 +18,9 @@ module BzApplicationHelper
       opts.merge!({ class: 'active' })
     end
 
+    link_opts = opts.delete(:link_opts) || {}
     content_tag :li, opts do
-      link_to name, url
+      link_to name, url, link_opts
     end
   end
 
